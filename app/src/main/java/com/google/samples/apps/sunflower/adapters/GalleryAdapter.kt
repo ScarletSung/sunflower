@@ -27,6 +27,8 @@ import com.google.samples.apps.sunflower.GalleryFragment
 import com.google.samples.apps.sunflower.adapters.GalleryAdapter.GalleryViewHolder
 import com.google.samples.apps.sunflower.data.UnsplashPhoto
 import com.google.samples.apps.sunflower.databinding.ListItemPhotoBinding
+import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * Adapter for the [RecyclerView] in [GalleryFragment].

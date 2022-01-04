@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/nav_fragment_entry">
+
+    <fragment
+        android:id="@+id/nav_fragment_entry"
+        android:name="com.google.samples.apps.sunflower.EntryFragment"
+        tools:layout="@layout/fragment_entry">
+
+        <action
+                android:id="@+id/action_entry_fragment_to_event_handle_fragment"
+                app:destination="@id/nav_fragment_event_handle"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_event_handle"
+        android:name="com.google.samples.apps.sunflower.EventHandleFragment"
+        tools:layout="@layout/fragment_event_handle">
+
+    </fragment>
+
+</navigation>

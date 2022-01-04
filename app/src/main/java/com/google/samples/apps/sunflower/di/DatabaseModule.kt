@@ -17,6 +17,7 @@
 package com.google.samples.apps.sunflower.di
 
 import android.content.Context
+import com.google.samples.apps.sunflower.adapters.GalleryAdapter
 import com.google.samples.apps.sunflower.data.AppDatabase
 import com.google.samples.apps.sunflower.data.GardenPlantingDao
 import com.google.samples.apps.sunflower.data.PlantDao

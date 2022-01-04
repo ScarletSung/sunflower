@@ -32,11 +32,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class GalleryFragment : Fragment() {
 
     private val adapter = GalleryAdapter()
+//    @Inject lateinit var adapter: GalleryAdapter
     private val args: GalleryFragmentArgs by navArgs()
     private var searchJob: Job? = null
     private val viewModel: GalleryViewModel by viewModels()

@@ -32,6 +32,10 @@ class UnsplashRepository @Inject constructor(private val service: UnsplashServic
         ).flow
     }
 
+    suspend fun getSearchResult(query: String, page: Int, loadSize: Int): List<UnsplashPhoto> {
+        return service.searchPhotos(query, page, loadSize).results
+    }
+
     companion object {
         private const val NETWORK_PAGE_SIZE = 25
     }
