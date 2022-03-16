@@ -12,10 +12,10 @@
         tools:context=".EntryFragment">
 
         <TextView
-            android:id="@+id/btn_event_handle"
+            android:id="@+id/btn_go_event_handle"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:text="Event Handle"
+            android:text="Go Event Fragment"
             android:textSize="8pt"
             android:background="@color/sunflower_white"
             android:textColor="@color/design_default_color_primary"
@@ -35,7 +35,7 @@
             android:background="@color/sunflower_white"
             android:textColor="@color/design_default_color_primary"
             android:gravity="center"
-            app:layout_constraintLeft_toRightOf="@id/btn_event_handle"
+            app:layout_constraintLeft_toRightOf="@id/btn_go_event_handle"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
