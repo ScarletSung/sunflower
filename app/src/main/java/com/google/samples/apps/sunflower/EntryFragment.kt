@@ -17,16 +17,23 @@
 package com.google.samples.apps.sunflower
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.google.samples.apps.sunflower.databinding.FragmentEntryBinding
 import com.google.samples.apps.sunflower.databinding.FragmentEventHandleBinding
 import com.google.samples.apps.sunflower.viewmodels.EntryViewModel
 import com.google.samples.apps.sunflower.viewmodels.EventHandleViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectIndexed
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class EntryFragment : Fragment() {
@@ -40,6 +47,50 @@ class EntryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentEntryBinding.inflate(inflater, container, false)
+
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                /*viewModel.data.observe(viewLifecycleOwner) {
+                    Log.d("EntryFragment", "viewModel - data observe start!!!")
+                }*/
+
+                /*viewModel.dataFlow.collect {
+                    Log.d("EntryFragment", "viewModel - data collect start!!!")
+                }
+                */
+
+                viewModel.collect {
+                    Log.d("EntryFragment", "viewModel - data collect start!!!:: $it")
+                }
+            }
+        }
+
+        /*lifecycleScope.launch {
+            viewModel.data.observe(viewLifecycleOwner) {
+                Log.d("EntryFragment", "viewModel - data observe start!!!")
+            }
+
+            viewModel.dataFlow.collect {
+                Log.d("EntryFragment", "viewModel - data collect start!!!:: $it")
+            }
+        }*/
+        /*viewModel.data.observe(viewLifecycleOwner) {
+            Log.d("EntryFragment", "viewModel - data observe start!!!:: $it")
+        }*/
+
+        /*lifecycleScope.launchWhenResumed {
+            viewModel.dataFlow.collect {
+                Log.d("EntryFragment", "viewModel - data collect start!!!")
+            }
+        }*/
+
+        binding.btnGoEventHandle.setOnClickListener {
+            findNavController().navigate(R.id.action_entry_fragment_to_event_handle_fragment)
+        }
+
+        binding.btnEmpty.setOnClickListener {
+            viewModel.plus()
+        }
 
         return binding.root
     }
