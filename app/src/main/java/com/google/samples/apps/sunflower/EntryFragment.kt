@@ -48,50 +48,6 @@ class EntryFragment : Fragment() {
     ): View {
         binding = FragmentEntryBinding.inflate(inflater, container, false)
 
-        lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                /*viewModel.data.observe(viewLifecycleOwner) {
-                    Log.d("EntryFragment", "viewModel - data observe start!!!")
-                }*/
-
-                /*viewModel.dataFlow.collect {
-                    Log.d("EntryFragment", "viewModel - data collect start!!!")
-                }
-                */
-
-                viewModel.collect {
-                    Log.d("EntryFragment", "viewModel - data collect start!!!:: $it")
-                }
-            }
-        }
-
-        /*lifecycleScope.launch {
-            viewModel.data.observe(viewLifecycleOwner) {
-                Log.d("EntryFragment", "viewModel - data observe start!!!")
-            }
-
-            viewModel.dataFlow.collect {
-                Log.d("EntryFragment", "viewModel - data collect start!!!:: $it")
-            }
-        }*/
-        /*viewModel.data.observe(viewLifecycleOwner) {
-            Log.d("EntryFragment", "viewModel - data observe start!!!:: $it")
-        }*/
-
-        /*lifecycleScope.launchWhenResumed {
-            viewModel.dataFlow.collect {
-                Log.d("EntryFragment", "viewModel - data collect start!!!")
-            }
-        }*/
-
-        binding.btnGoEventHandle.setOnClickListener {
-            findNavController().navigate(R.id.action_entry_fragment_to_event_handle_fragment)
-        }
-
-        binding.btnEmpty.setOnClickListener {
-            viewModel.plus()
-        }
-
         return binding.root
     }
 
